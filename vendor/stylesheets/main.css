@@ -1,0 +1,166 @@
+body, html{
+	margin: 0;
+	height: 100%;
+}
+
+/*=====================================*/
+/*           BACKGROUND   IMAGE        */
+/*=====================================*/
+
+.bgImage{
+	background-image: url(../home.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	min-height: 100%; 
+}
+
+
+@media (max-width: 900px){
+	.bgImage{
+		/*padding-le*//*ft: 500px;
+		padding-right: 500px;*/
+		background-position: 80% 60%;
+	}
+}
+
+
+/*=====================================*/
+/*           BG IMAGE TEXT             */
+/*=====================================*/
+
+.position-text-on-image{
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+.position-button-on-image{
+  position: absolute;
+  top: 57%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+
+
+/*=====================================*/
+/*           NAVBAR                    */
+/*=====================================*/
+
+.navbar{
+	position: fixed;
+	top: 0%;
+	width: 100%;
+}
+
+.page-top-navbar{
+	background-color: rgba(255,255,255,0);
+}
+
+.opaque-navbar {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/*=====================================*/
+/*           FOOTER                    */
+/*=====================================*/
+
+footer {
+    padding-left: 80px;
+    padding-right: 70px;
+    padding-top: 72px;
+    padding-bottom: 20px;
+    background-color: #ff904a;
+    color: #848484;
+    font-size: 10px;
+    width: 100%;
+    text-transform: uppercase;
+    font-family: 'Noto Sans HK', sans-serif;
+    letter-spacing: .18em;
+}
+
+/*
+.add-bottom-margin{
+	margin-bottom: 65px;
+}
+*/
+
+.footer-top-row{
+	margin-bottom: 35px;
+}
+
+.footer-headings{
+	color: white;
+}
+
+.footer-social-links{
+	font-size: 20px
+}
+
+@media screen and (max-width: 900px){
+	.quick-links{
+		display: none;
+	}
+}
+
+@media screen and (min-width: 901px){
+
+}
+
+a{
+	color: #848484;
+}
+
+a:active{
+	color: white;
+}
+
+form {
+    margin: 0 0 20px;
+}
+
+.input-form-home{
+	background-color: #ff904a;
+	border:2px solid #848484;
+	margin-top: 15px;
+	padding: 10px 20px;
+}
+
+@media screen and (max-width: 900px){
+	.input-form-home{
+		background-color: #ff904a;
+		border:2px solid #999;
+		width: 100%;
+		margin-top: 15px;
+		padding: 10px 20px;
+	}
+
+	footer{
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	/*make all the tags center aligned*/
+	.footer-align-content{
+	text-align: center;
+	}
+
+	.footer-social-links{
+		font-size: 15px
+	}
+
+	.footer-headings{
+		padding-top: 20px;
+	}
+}
+
+
+#editor-container {
+  height: 400px;
+  margin-bottom: 20px;
+}
+
+.editBar{
+  width: 80%;	
+}
