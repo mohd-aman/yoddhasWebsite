@@ -5,3 +5,5 @@ $(window).scroll(function(){
        $('#dynamic').removeClass('opaque-navbar');
     }
 });
+
+
