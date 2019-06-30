@@ -3,7 +3,7 @@
 
     padding:70px 30px 70px 30px;
     margin:0px auto;
-    background: #9575CD;
+    background: #f99748;
     color: floralwhite;
 
 }
@@ -24,12 +24,12 @@
     font-weight: 900;
     content: "\f054";
     float:right;
-  color: rebeccapurple;
+  color:  #f99748;
 }
 .accordion-toggle.collapsed:after {    
    
     content: "\f103";
-color:rebeccapurple;
+color: #f99748;
        
 }
 .page-header {

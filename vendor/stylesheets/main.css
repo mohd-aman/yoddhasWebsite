@@ -71,7 +71,7 @@ footer {
     padding-right: 70px;
     padding-top: 72px;
     padding-bottom: 20px;
-    background-color: #ff904a;
+    background-color: #f99748;
     color: #848484;
     font-size: 10px;
     width: 100%;
@@ -121,7 +121,7 @@ form {
 }
 
 .input-form-home{
-	background-color: #ff904a;
+	background-color: #f99748;
 	border:2px solid #848484;
 	margin-top: 15px;
 	padding: 10px 20px;
@@ -129,7 +129,7 @@ form {
 
 @media screen and (max-width: 900px){
 	.input-form-home{
-		background-color: #ff904a;
+		background-color: #f99748;
 		border:2px solid #999;
 		width: 100%;
 		margin-top: 15px;
