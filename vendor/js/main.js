@@ -7,3 +7,7 @@ $(window).scroll(function(){
 });
 
 
+// bonemarrow
+$('.carousel').carousel({
+  interval: 2000
+})
