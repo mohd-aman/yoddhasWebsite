@@ -17,14 +17,42 @@ body, html{
 }
 
 
+.bgImageAbout{
+	background-image: url(../aboutus1.jpg);
+	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+  	height: 50%;
+  	width: 100%;
+	max-width: 240rem;
+	height: 470px;
+	/*filter: brightness(55%);*/
+}
+
 @media (max-width: 900px){
 	.bgImage{
 		/*padding-le*//*ft: 500px;
 		padding-right: 500px;*/
 		background-position: 80% 60%;
 	}
+
+	.bgImageAbout{
+		background-position: center;
+	  	background-size: cover;
+	  	height: 30%;
+  		/*filter: brightness(55%);*/
+	}
 }
 
+
+.login {
+  background: url(../logo.png), no-repeat;
+  width: 200px;
+  height: 20px;
+  margin-top: 0px;
+  padding-top: 0px;
+  display: block;
+}
 
 /*=====================================*/
 /*           BG IMAGE TEXT             */
@@ -43,7 +71,6 @@ body, html{
   transform: translate(-50%, -50%);
 }
 
-
 /*=====================================*/
 /*           NAVBAR                    */
 /*=====================================*/
@@ -60,6 +87,7 @@ body, html{
 
 .opaque-navbar {
     background-color: rgba(0,0,0,0.8);
+    z-index: 1;
 }
 
 /*=====================================*/
@@ -72,7 +100,7 @@ footer {
     padding-top: 72px;
     padding-bottom: 20px;
     background-color: #f99748;
-    color: #848484;
+    color: white;
     font-size: 10px;
     width: 100%;
     text-transform: uppercase;
@@ -109,7 +137,7 @@ footer {
 }
 
 a{
-	color: #848484;
+	color: white;
 }
 
 a:active{
@@ -122,7 +150,7 @@ form {
 
 .input-form-home{
 	background-color: #f99748;
-	border:2px solid #848484;
+	border:2px solid white;
 	margin-top: 15px;
 	padding: 10px 20px;
 }
@@ -163,4 +191,84 @@ form {
 
 .editBar{
   width: 80%;	
+}
+
+
+/*=====================*/
+/*ABOUT US PAGE CONTENT*/
+/*=====================*/
+
+.aboutImageText{
+	position: relative;
+  	text-align: center;
+  	top: 55%;
+	color: #f99748;
+	font-size: 60px;
+}
+
+@media(max-width: 700px){
+
+	.aboutImageText{
+  		top: 38%;
+		font-size: 25px;
+	}
+}
+
+
+.aboutus-p-top{
+	text-align: center;
+	padding-top: 70px;
+	padding-left: 50px;
+	padding-right: 50px;
+	font-family: 'Nanum Gothic', sans-serif;
+	font-size: 2rem;
+    /*line-height: 3.2rem;*/
+}
+
+.aboutus-p-bottom{
+	padding-left: 50px;
+	padding-right: 50px;
+	font-family: 'Raleway', sans-serif;
+	font-size: 1.3rem;
+	padding-bottom: 20px;
+    /*line-height: 3.2rem;*/
+}
+
+@media(max-width: 800px){
+	.aboutus-p-top{
+		padding-top: 50px;
+		padding-left: 10px;
+		padding-right: 10px;
+		font-size: 1.5rem;
+	    /*line-height: 3.2rem;*/
+	}
+}
+
+/*BOARD MEMBERS AND PEOPLE*/
+
+.bgGreyPeople{
+	background-color: #eeeeee;
+	width: 100%;
+}
+
+.container-people{
+	padding: 40px 40px 40px 40px;
+}
+
+.designationName{
+	font-size: 40px;
+	font-family: 'Raleway', sans-serif;	
+	background-color: #f99748;	
+}
+
+.founderImg{
+	max-width: 300px;
+	border:2px solid #f99748;
+	border-radius: 25px;
+}
+
+.boardMemberImg{
+	max-width: 180px;
+	border:2px solid #f99748;
+	border-radius: 100px;
 }
