@@ -1,10 +1,10 @@
-.container{
+ .c1{
 
-  padding:70px 30px 70px 30px;
+  padding:20px 30px 20px 20px;
   margin:0px auto;
  
  
-}
+} 
 .peopleCarouselImg img {
   width: auto;
   height: 225px;
@@ -26,4 +26,20 @@
   padding:10px 30px 20px 30px;
   margin:0px auto;
 
+}
+#StemCell{
+background-color: aquamarine
+}
+#HLA{
+  background-color: bisque
+}
+#StemDonor{
+  background-color: antiquewhite
+}
+#f1{
+  background-color:gray ;
+  
+}
+#art{
+  background-color: silver
 }
