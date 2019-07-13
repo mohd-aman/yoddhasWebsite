@@ -53,9 +53,9 @@ app.get('/contact', function(req,res){
 	res.render("contact");
 });
 // Volunteer System
-app.get('/volunteer/home', function(req,res){
-	res.render("volunteer");
-});
+// app.get('/volunteer/home', function(req,res){
+// 	res.render("volunteer");
+// });
 app.get("/login", function(req,res){
 	res.render("login");
 });
@@ -78,7 +78,7 @@ app.post("/register", function(req, res){
             return res.render("register");
         }
         passport.authenticate("local")(req, res, function(){
-           res.redirect("/write"); 
+           res.redirect("/"); 
         });
     });
 });
@@ -88,20 +88,14 @@ app.get('/logout', function(req,res){
 	res.redirect('/');
 });
 // Support
-app.get('/support/donate', function(req,res){
+app.get('/donate', function(req,res){
 	res.render("donate");
 });
-app.get('/support/forum', function(req,res){  
-	res.render("forum");
-});
 // News and Events
-app.get('/newsandevents/upcomingevents', function(req,res){  
+app.get('/events/upcomingevents', function(req,res){  
 	res.render("upcomingevents");
 });
-app.get('/newsandevents/pastevents', function(req,res){  
-	res.render("pastevents");
-});
-app.get('/newsandevents/newsandpublications', function(req,res){  
+app.get('/events/newsandpublications', function(req,res){  
 	res.render("newsandpublications");
 });
 // Healthy Living
