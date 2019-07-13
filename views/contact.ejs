@@ -1,25 +1,21 @@
 <% include partials/header%>
-
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
      <div class="container" style="margin-top: 50px">
-     	<div id="msgC"></div>
-     	 <div id="mapid"></div>
-     	 <div id="social">
-			<a class="facebookBtn smGlobalBtn" href="https://www.facebook.com/yoddhas" ></a>
-			<a class="twitterBtn smGlobalBtn" href="https://twitter.com/yoddhas" ></a>
-			<a class="googleplusBtn smGlobalBtn" href="#" ></a>
-			<a class="linkedinBtn smGlobalBtn" href="#" ></a>
-		
-		</div>
-      <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">                        
+      <div id="msgC"></div>
+       <div id="mapid"></div>
+       <div id="social">
+      <a class="facebookBtn smGlobalBtn" href="https://www.facebook.com/yoddhas" ></a>
+      <a class="twitterBtn smGlobalBtn" href="https://twitter.com/yoddhas" ></a>
+      <a class="googleplusBtn smGlobalBtn" href="#" ></a>
+      <a class="linkedinBtn smGlobalBtn" href="#" ></a>
+    
+    </div>
+      <div class="ui four column doubling stackable grid container">
+      <div class="contactForm">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">                        
             <h2 class="form-title">Get in Touch</h2>
           </div>
-      </div>
-
-      <div class="row">
-
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <form id="contact-form" name="myForm" class="form" action="send" onsubmit="return validateForm()" method="POST" role="form">
 
                   <div class="form-group">
@@ -43,7 +39,7 @@
                   </div>
 
                   <div class="text-center margin-top-25">
-                      <button type="submit" class="btn btn-mod btn-border btn-large">Send Message</button>
+                      <button type="submit" class="btn btn-success">Send Message</button>
                   </div>
 
               </form><!-- End form -->
@@ -51,7 +47,7 @@
           </div><!-- End col -->
 
       </div><!-- End row -->
-      
+      </div>
     </div><!-- End container -->
 
   </body><!-- End body -->
