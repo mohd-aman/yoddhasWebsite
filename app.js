@@ -1,13 +1,32 @@
-var express = require('express');
-var request = require('request');
-var ejs = require('ejs');
-var path = require('path');
-// require for sending mail from contact form
-var bodyParser = require('body-parser');
-var nodemailer = require('nodemailer');
-var exphbs = require('express-handlebars');
+var express = require('express'),
+	ejs = require('ejs'),
+	request = require('request'),
+	path = require('path'),
+	 bodyParser = require('body-parser');
+	nodemailer = require('nodemailer');
+	exphbs = require('express-handlebars'),
+	passport = require("passport"),
+	mongoose = require('mongoose'),
+	passport = require("passport"),
+	LocalStrategy = require("passport-local"),
+	passportLocalMongoose = require("passport-local-mongoose"),
+	User = require("./models/user"),
+	app = express()
 
-var app = express();
+mongoose.connect("mongodb://localhost:27017/yoddhasWebsite", {useNewUrlParser: true});
+
+app.use(require("express-session")({
+	secret: "Yoddhas is an ngo fighting against cancer",
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.engine('handlebars',exphbs());
 
@@ -37,8 +56,36 @@ app.get('/contact', function(req,res){
 app.get('/volunteer/home', function(req,res){
 	res.render("volunteer");
 });
-app.get('/volunteer/login', function(req,res){
+app.get("/login", function(req,res){
 	res.render("login");
+});
+
+app.post("/login", passport.authenticate("local", {
+		successRedirect: "/write",
+		failureRedirect: "/login"
+	}), function(req,res){
+});	
+
+app.get("/register", function(req, res){
+   res.render("register"); 
+});
+
+app.post("/register", function(req, res){
+    var newUser = new User({username: req.body.username});
+    User.register(newUser, req.body.password, function(err, user){
+        if(err){
+            console.log(err);
+            return res.render("register");
+        }
+        passport.authenticate("local")(req, res, function(){
+           res.redirect("/write"); 
+        });
+    });
+});
+
+app.get('/logout', function(req,res){
+	req.logout();
+	res.redirect('/');
 });
 // Support
 app.get('/support/donate', function(req,res){
@@ -120,12 +167,9 @@ async function main(){
   res.render('contact');
    res.end();
 
-}
-main().catch(console.error);
+	}
+	main().catch(console.error);
 });
-
-
-
 
 app.listen(3000,(req,res) => {
 	console.log('App on 3000');
