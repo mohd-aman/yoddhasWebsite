@@ -167,3 +167,11 @@ textarea {
 #mapid { height: 360px;
         width: 100%;
         margin-bottom: 40px;}
+
+@media only screen and (min-width: 922px){
+  
+.contactForm{
+  margin-left: -250px;
+  width: 70%;
+}
+}
