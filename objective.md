@@ -16,3 +16,12 @@ BG IMAGE
 
 WRITE PAGE
 - look for ideas from blog writing pages
+
+Cahtbots 
+Machine learning -> leave it
+Send a pdf of resources available about it from the internet
+volunteer@yoddhas.org
+team@
+medconsult@
+shefali,
+content.yoddhas@gmial.com
