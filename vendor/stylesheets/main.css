@@ -29,6 +29,48 @@ body, html{
 	/*filter: brightness(55%);*/
 }
 
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: "Lora",serif;
+  color: #15181d;
+  line-height: 1.1em;
+  margin-bottom: 0;
+  margin-top: 0;
+  font-weight: 700;
+}
+
+.h1,.h2,.h3,.h4,.h5,.h6 {
+  margin-bottom: 0;
+  margin-top: 0;
+  font-family: "Lora",serif;
+  font-weight: 700;
+  color: #15181d;
+}
+
+h1,.h1 {
+  font-size: 36px;
+}
+
+h2,.h2 {
+  font-size: 42px;
+}
+
+h3,.h3 {
+  font-size: 24px;
+}
+
+h4,.h4 {
+  font-size: 20px;
+}
+
+h5,.h5 {
+  font-size: 16px;
+}
+
+h6,.h6 {
+  font-size: 14px;
+}
+
 @media (max-width: 900px){
 	.bgImage{
 		/*padding-le*//*ft: 500px;
@@ -47,6 +89,7 @@ body, html{
 
 .login {
   background: url(../logo.png), no-repeat;
+  z-index: 1;
   max-width: 20%;
   height: 20px;
   margin-top: 0px;
