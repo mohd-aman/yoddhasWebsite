@@ -4,6 +4,8 @@ var express = require('express'),
 	path = require('path'),
 	 bodyParser = require('body-parser');
 	nodemailer = require('nodemailer');
+	methodOverride = require("method-override"),
+	expressSanitizer = require("express-sanitizer"),
 	exphbs = require('express-handlebars'),
 	passport = require("passport"),
 	mongoose = require('mongoose'),
@@ -23,23 +25,30 @@ app.use(require("express-session")({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(expressSanitizer());
 
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.engine('handlebars',exphbs());
-
-
+app.use(methodOverride("_method"));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'vendor')));
-
-
-//body-parser
 app.use(bodyParser.urlencoded({
-  extended:false
+  extended:true
 }));
 app.use(bodyParser.json());
+
+
+var blogSchema = new mongoose.Schema({
+    title: String,
+    image: String,
+    body: String,
+    created: {type: Date, default: Date.now}
+});
+var Blog = mongoose.model("Blog", blogSchema);
+
 
 
 app.get('/', function(req, res){
@@ -92,51 +101,113 @@ app.get('/donate', function(req,res){
 	res.render("donate");
 });
 // News and Events
-app.get('/events/upcomingevents', function(req,res){  
-	res.render("upcomingevents");
-});
-app.get('/events/newsandpublications', function(req,res){  
-	res.render("newsandpublications");
-});
-// Healthy Living
-app.get('/healthyliving/blog', function(req,res){  
-	res.render("blog");
-});
-app.get('/healthyliving/hospital', function(req,res){  
-	res.render("hospital");
-});
+// app.get('/events/upcomingevents', function(req,res){  
+// 	res.render("upcomingevents");
+// });
+// app.get('/events/newsandpublications', function(req,res){  
+// 	res.render("newsandpublications");
+// });
+// // Healthy Living
+// app.get('/healthyliving/blog', function(req,res){  
+// 	res.render("blog");
+// });
+// app.get('/healthyliving/hospital', function(req,res){  
+// 	res.render("hospital");
+// });
 
-// Dealing with Cancer
-app.get('/dealingwithcancer/dosanddonts', function(req,res){  
-	res.render("dosanddonts");
-});
-app.get('/dealingwithcancer/basiccancer', function(req,res){  
-	res.render("basiccancer");
-});
-app.get('/dealingwithcancer/multiplemyeloma', function(req,res){  
-	res.render("multiplemyeloma");
-});
-app.get('/dealingwithcancer/bonemarrowdonor', function(req,res){  
-	res.render("bonemarrowdonor");
-});
-app.get('/dealingwithcancer/inspirations', function(req,res){  
-	res.render("inspirations");
-});
-app.get('/dealingwithcancer/faq', function(req,res){  
-	res.render("faq");
-});
+// // Dealing with Cancer
+// app.get('/dealingwithcancer/dosanddonts', function(req,res){  
+// 	res.render("dosanddonts");
+// });
+// app.get('/dealingwithcancer/basiccancer', function(req,res){  
+// 	res.render("basiccancer");
+// });
+// app.get('/dealingwithcancer/multiplemyeloma', function(req,res){  
+// 	res.render("multiplemyeloma");
+// });
+// app.get('/dealingwithcancer/bonemarrowdonor', function(req,res){  
+// 	res.render("bonemarrowdonor");
+// });
+// app.get('/dealingwithcancer/inspirations', function(req,res){  
+// 	res.render("inspirations");
+// });
+// app.get('/dealingwithcancer/faq', function(req,res){  
+// 	res.render("faq");
+// });
 
 //blog
-app.get("/blog", function(req, res){
+app.get("/blogs", function(req, res){
   Blog.find({}, function(err, blogs){
       if(err){
           console.log("ERROR!");
       } else {
-         res.render("blog", {blogs: blogs}); 
+         res.render("blogIndex", {blogs: blogs}); 
       }
   });
 });
 
+app.get("/blogs/new", function(req, res){
+    res.render("new");
+});
+
+// CREATE ROUTE
+app.post("/blogs", function(req, res){
+    Blog.create(req.body.blog, function(err, newBlog){
+        if(err){
+            res.render("new");
+        } else {
+            //then, redirect to the index
+            res.redirect("/blogs");
+        }
+    });
+});
+
+// SHOW ROUTE
+app.get("/blogs/:id", function(req, res){
+   Blog.findById(req.params.id, function(err, foundBlog){
+       if(err){
+           res.redirect("/blogs");
+       } else {
+           res.render("show", {blog: foundBlog});
+       }
+   })
+});
+
+// EDIT ROUTE
+app.get("/blogs/:id/edit", function(req, res){
+    Blog.findById(req.params.id, function(err, foundBlog){
+        if(err){
+            res.redirect("/blogs");
+        } else {
+            res.render("edit", {blog: foundBlog});
+        }
+    });
+})
+
+
+// UPDATE ROUTE
+app.put("/blogs/:id", function(req, res){
+    req.body.blog.body = req.sanitize(req.body.blog.body)
+   Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedBlog){
+      if(err){
+          res.redirect("/blogs");
+      }  else {
+          res.redirect("/blogs/" + req.params.id);
+      }
+   });
+});
+
+// DELETE ROUTE
+app.delete("/blogs/:id", function(req, res){
+   //destroy blog
+   Blog.findByIdAndRemove(req.params.id, function(err){
+       if(err){
+           res.redirect("/blogs");
+       } else {
+           res.redirect("/blogs");
+       }
+   })
+});
 
 
 
