@@ -126,6 +126,17 @@ app.get('/dealingwithcancer/faq', function(req,res){
 	res.render("faq");
 });
 
+//blog
+app.get("/blog", function(req, res){
+  Blog.find({}, function(err, blogs){
+      if(err){
+          console.log("ERROR!");
+      } else {
+         res.render("blog", {blogs: blogs}); 
+      }
+  });
+});
+
 
 
 
