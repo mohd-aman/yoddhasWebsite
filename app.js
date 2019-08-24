@@ -174,7 +174,7 @@ app.get("/blogs/:id", function(req, res){
 });
 
 // EDIT ROUTE
-app.get("/blogs/:id/edit", function(req, res){
+app.get("/blogs/:id/edit",isLoggedIn, function(req, res){
     Blog.findById(req.params.id, function(err, foundBlog){
         if(err){
             res.redirect("/blogs");
@@ -186,7 +186,7 @@ app.get("/blogs/:id/edit", function(req, res){
 
 
 // UPDATE ROUTE
-app.put("/blogs/:id", function(req, res){
+app.put("/blogs/:id", isLoggedIn, function(req, res){
     req.body.blog.body = req.sanitize(req.body.blog.body)
    Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedBlog){
       if(err){
@@ -198,7 +198,7 @@ app.put("/blogs/:id", function(req, res){
 });
 
 // DELETE ROUTE
-app.delete("/blogs/:id", function(req, res){
+app.delete("/blogs/:id", isLoggedIn, function(req, res){
    //destroy blog
    Blog.findByIdAndRemove(req.params.id, function(err){
        if(err){
@@ -209,6 +209,13 @@ app.delete("/blogs/:id", function(req, res){
    })
 });
 
+
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect("/login");
+}
 
 
 app.post('/send',(req,res) => {
