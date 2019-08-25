@@ -55,6 +55,10 @@ app.get('/', function(req, res){
 	res.render("index");
 });
 
+app.get('/team', function(req, res){
+	res.render("ourteam");
+});
+
 app.get('/about', function(req,res){
 	res.render("about");
 });
