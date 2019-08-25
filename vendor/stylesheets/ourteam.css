@@ -1,11 +1,11 @@
 /* FontAwesome for working BootSnippet :> */
 
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-#team {
+.teampage #team {
     background: #eee !important;
 }
 
-.btn-primary:hover,
+.teampage.btn-primary:hover,
 .btn-primary:focus {
     background-color: #108d6f;
     border-color: #108d6f;
@@ -13,30 +13,30 @@
     outline: none;
 }
 
-.btn-primary {
+.teampage .btn-primary {
     color: #fff;
     background-color: #007b5e;
     border-color: #007b5e;
 }
 
-section {
+.teampage section {
     padding: 60px 0;
 }
 
-section .section-title {
+.teampage section .section-title {
     text-align: center;
     color: #007b5e;
     margin-bottom: 50px;
     text-transform: uppercase;
 }
 
-#team .card {
+.teampage #team .card {
     border: none;
     background: #ffffff;
 }
 
-.image-flip:hover .backside,
-.image-flip.hover .backside {
+.teampage .image-flip:hover .backside,
+.teampage .image-flip.hover .backside {
     -webkit-transform: rotateY(0deg);
     -moz-transform: rotateY(0deg);
     -o-transform: rotateY(0deg);
@@ -45,15 +45,15 @@ section .section-title {
     border-radius: .25rem;
 }
 
-.image-flip:hover .frontside,
-.image-flip.hover .frontside {
+.teampage .image-flip:hover .frontside,
+.teampage .image-flip.hover .frontside {
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
     -o-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 
-.mainflip {
+.teampage .mainflip {
     -webkit-transition: 1s;
     -webkit-transform-style: preserve-3d;
     -ms-transition: 1s;
@@ -66,7 +66,7 @@ section .section-title {
     position: relative;
 }
 
-.frontside {
+.teampage .frontside {
     position: relative;
     -webkit-transform: rotateY(0deg);
     -ms-transform: rotateY(0deg);
@@ -74,7 +74,7 @@ section .section-title {
     margin-bottom: 30px;
 }
 
-.backside {
+.teampage .backside {
     position: absolute;
     top: 0;
     left: 0;
@@ -89,8 +89,8 @@ section .section-title {
     box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
 }
 
-.frontside,
-.backside {
+.teampage .frontside,
+.teampage .backside {
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     -ms-backface-visibility: hidden;
@@ -107,22 +107,22 @@ section .section-title {
     transform-style: preserve-3d;
 }
 
-.frontside .card,
-.backside .card {
+.teampage .frontside .card,
+.teampage .backside .card {
     min-height: 312px;
 }
 
-.backside .card a {
+.teampage .backside .card a {
     font-size: 18px;
     color: #007b5e !important;
 }
 
-.frontside .card .card-title,
-.backside .card .card-title {
+.teampage .frontside .card .card-title,
+.teampage .backside .card .card-title {
     color: #007b5e !important;
 }
 
-.frontside .card .card-body img {
+.teampage .frontside .card .card-body img {
     width: 120px;
     height: 120px;
     border-radius: 50%;
