@@ -58,6 +58,12 @@ app.get('/', function(req, res){
 app.get('/about', function(req,res){
 	res.render("about");
 });
+
+app.get('/team', function(req,res){
+	res.render("ourteam");
+});
+
+
 app.get('/contact', function(req,res){
 	res.render("contact");
 });
